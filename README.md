@@ -6,6 +6,7 @@ This repository aims to serve as an index of the main computational methods impl
 
 <!-- Table of contents -->
 - [I. Gene expression](#introduction)
+  - [a. Analysis](#Ia.%20Analysis)
 - [Online Generation](#online-generation)
 - [Run locally](#run-locally)
 - [Docker](#docker)
