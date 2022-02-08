@@ -2,7 +2,7 @@
 
 
 
-This repository aims to serve as an index of the main computational methods implemented in VASA-seq's manuscript (Salmen &amp; De Jonghe et al. 2022). Some computational workflow were exclusively developed for this project and the corresponding code is contained in this repocitory. External workflows were also implemented and adapted for conducting part of the analyses and the respective code is distributed across separate repositories that are here in referenced.
+This repository aims to serve as an index of the main computational methods implemented in VASA-seq's manuscript (Salmen &amp; De Jonghe et al. 2022). Some computational workflow were exclusively developed for this project and the corresponding code is contained in this repocitory. External workflows were also implemented and adapted for conducting part of the analyses and the respective code is distributed across separate repositories that are herein referenced.
 
  The computational work carried out in this manuscript can be divided into two main modules focused on (I) Gene expression and (II) Alternative splicing analyses. Each of these modules has several sub-sections, where corresponding material and descriptions are contained across the folders present in this repository. 
 

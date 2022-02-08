@@ -21,7 +21,7 @@ git checkout joe
 
 # Setup
 
-To run these workflows you need to [install Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html) and allocate insided the clone folder specific files that will be described bellow.
+To run these workflows you need to [install Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html) and allocate insided the clone folder specific files that will be described bellow. The complete set of files used to run the analysis of VASA-seq data can be found at the [Build](Build/) folder.
 
 
 ## config.yaml
@@ -40,7 +40,38 @@ Other variables that are important:
 - group_by_cluster : True
 
 
-But for now we are going to leave them as they are. These variables basically indicate the names of the files will be used by the pipeline and also indicate we want to group cells by cluster during the analysis. There are some variables the pipeline will not use, but I recommend not to delete these lines to just do the minimal amount of modification to the files that are fully working for us.
+## units.tsv
+
+The specific name and path of this file should match with the one defined in `cluster.yaml`. The folowing file should have tab-separated values (TSV) that should contain the following named columns:
 
 
-# References
+- sample : ID of each cell / barcode
+- unit : as we are processing single end reads, this should be 1. I have not developed this pipeline for paired ends, but I could do it if needed in the future. Leave all the values as 1.
+- path : path to each fastq.gz file. We accept only compressed gz files, as it’s the most efficient way to store the data and read it with reasonable speed. Your files will only be read by the pipeline and temporary files will be created inside the RNA_seq_snakepipes folder. Always keeping additional copies of the original data never hurts though.
+
+## samples.tsv
+
+Similarly to `units.tsv`, this also a TSV file that should contain the following columns
+
+- sample : ID of each cell / barcode
+- pools : Number of sub-divisions per cluster. In our case, we did not subdivide the clusters as they were already corresponding to over 40 divisions of the whole data. The concept is to boost the coverage for the initial assembly steps. So merging all cells from the same cluster made sense for us, but if you have bigger datasets than this one, maybe you could try to generate several pseudo pools per cluster by increasing this variable. This number must be the same for all cells belonging to the same cluster
+- condition : In our case this should be the cluster ID. Leiden clusters worked fine for us.
+
+
+## cluster.json
+
+This is a file that snakemakes needs to communicate with your HPC queuing system. This is probably one of the steps that will take some time to figure out how to adapt it for your case, unless you know people who are already using snakemake in your cluster. In our case our queuing system was LSF. Inside this file you will see the CPU and memory assignment for the rules, with some default and costume definition for certain rules. For more information the official snakemake documentation on this topic:
+
+https://snakemake.readthedocs.io/en/stable/snakefiles/configuration.html#cluster-configuration-deprecated
+
+
+
+# Run 
+
+After activating the conda environment where snakemake is installed (check section 3.1.2 of our chapter), you need to execute snakemake while providing the cluster configuration variables and a target for snakemake. The cluster configuration is provided as `--cluster-config cluster.json –cluster {cluster system params}` , where at `{}` you must include the command to submit jobs you would normally use, but giving it variables that you defined at cluster.json. Finally, the target for snakemake should be included at the end of the command and in this case is extend_reference. So, in our case this single command you need to execute everything looks like this:
+
+
+```{bash}
+snakemake --cluster-config cluster.json --cluster "bsub -n {cluster.nCPUs} -R {cluster.resources} -c {cluster.tCPU} -G {cluster.Group} -q {cluster.queue} -o {cluster.output} -e {cluster.error} -M {cluster.memory}" --use-conda -k -j 50 gffcompare/extended_ref_annotation.gtf
+```
+
