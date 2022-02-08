@@ -12,7 +12,7 @@ This repository aims to serve as an index of the main computational methods impl
   - [b. Analysis](I_Gene_expression/b_Analysis/)
 - [II. Alternative splicing](II_Alternative_splicing/)
   - [a. Transcriptome assembly](II_Alternative_splicing/a_Transcriptme_assembly/)
-  - [b. MicroExon annotation](II_Alternative_splicing/b_Microexon_annotation/)
+  - [b. Microexon annotation](II_Alternative_splicing/b_Microexon_annotation/)
   - [c. Event-based quantification](II_Alternative_splicing/c_AS_quantification/)
   - [d. Analysis](II_Alternative_splicing/d_Analysis/)
 
