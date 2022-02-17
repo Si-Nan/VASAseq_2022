@@ -21,7 +21,7 @@ git checkout joe
 
 # Setup
 
-To run these workflows you need to [install Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html) and place inside the cloned folder specific files that will be described bellow. The complete set of files used to run the analysis of VASA-seq data can be found at the [Build](Build/) folder.
+To reproduce these analyses, snakemake needs to be installed (see  [installation instructions](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html)). Moreover, specific files needs to be plased inside the cloned folder, which are described bellow. The complete set of files used to run the analysis of VASA-seq data can be found at the [Build](Build/) folder.
 
 
 ## config.yaml
@@ -68,7 +68,8 @@ https://snakemake.readthedocs.io/en/stable/snakefiles/configuration.html#cluster
 
 # Run 
 
-After activating the conda environment where snakemake is installed, you need to execute snakemake while providing the cluster configuration variables and a target for snakemake. The cluster configuration is provided as `--cluster-config cluster.json –cluster {cluster system params}` , where at `{}` you must include the command to submit jobs you would normally use, but giving it variables that you defined at cluster.json. Finally, the target for snakemake should be included at the end of the command and in this case is extend_reference. So, in our case the single command you need to execute everything looks like this:
+To execute this pipeline, activate snakemake's conda enviroment and provide the appropiate cluster variables and target for snakemake. The cluster configuration is provided as `--cluster-config cluster.json –cluster {cluster system params}` , where at `{}` you must include the command to submit jobs you would normally use, but giving it variables that you defined at `cluster.json`. Finally, the target for snakemake should be included at the end of the command and in this case is extend_reference. Using LSF, as queue management system, we ran the following command to run this workflow:
+
 
 
 ```{bash}
