@@ -68,7 +68,7 @@ https://snakemake.readthedocs.io/en/stable/snakefiles/configuration.html#cluster
 
 # Run 
 
-After activating the conda environment where snakemake is installed (check section 3.1.2 of our chapter), you need to execute snakemake while providing the cluster configuration variables and a target for snakemake. The cluster configuration is provided as `--cluster-config cluster.json –cluster {cluster system params}` , where at `{}` you must include the command to submit jobs you would normally use, but giving it variables that you defined at cluster.json. Finally, the target for snakemake should be included at the end of the command and in this case is extend_reference. So, in our case the single command you need to execute everything looks like this:
+After activating the conda environment where snakemake is installed, you need to execute snakemake while providing the cluster configuration variables and a target for snakemake. The cluster configuration is provided as `--cluster-config cluster.json –cluster {cluster system params}` , where at `{}` you must include the command to submit jobs you would normally use, but giving it variables that you defined at cluster.json. Finally, the target for snakemake should be included at the end of the command and in this case is extend_reference. So, in our case the single command you need to execute everything looks like this:
 
 
 ```{bash}
