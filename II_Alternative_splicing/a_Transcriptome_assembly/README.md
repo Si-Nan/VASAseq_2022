@@ -26,14 +26,14 @@ To run these workflows you need to [install Snakemake](https://snakemake.readthe
 
 ## config.yaml
 
-This YAML file contains the information that is required for configuring the pipeline. I suggest you edit our files, here I will list the set of variables you must change to make it run with your data:
+This YAML file contains the information that is required for configuring the pipeline. This file needs to be placed inside the clone's folder and the following file paths needs to be defined:
 
 
 - Genome : Here you should include the path to genome (multi-fasta file containing all chromosomes)
 - GTF : Path to a GTF file  - Please check that both Genome and GTF have the same chromosome names. For example European names are 1, 2, 3 …while American are Chr1, Chr2, Chr3 …
 
 
-Other variables that are important:
+Other relevant variables:
 
 - samples : samples.tsv
 - units : units.tsv
