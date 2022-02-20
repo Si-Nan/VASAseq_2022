@@ -36,16 +36,17 @@ The same pipeline was used to analyze the data from (Pijuan-Sala et al, Nature 2
 
 All the scripts can be run direclty in a LINUX/UNIX terminal using a virtual environment with python3 and all the required libraries (`pandas, numpy, collections, scanpy, scrublet, ...`) or submitting the jobs via SLURM or SGE. In some cases, a lot of memory is needed and the script takes some time, therefore job submission is recomended. 
 
-### Examples
+### How to run the scripts in the LINUX/UNIX terminal
 
 - `timepoint` indicates which timepoint are we analyzing and as an input of our scripts we set it as: E65, E75, E85, E95
-- `genecoverage` indicates whether we use all reads or only reads mapping the the 3' UTR of detected genes. Can have the values `all` or `high`
-- 
+- `genecoverage` indicates whether we use all reads or only reads mapping the the 3' UTR of detected genes. Can have the values `all` or `high`. We recommend to run 02 with both genecoverage options before step 03, since both outputs are required for step 05. 
+
 ```
 timepoint=E65
 genecoverage=all
 01_qc_checks_HPCversion.py $timepoint 
-02_scanpy_QCxBiotype.py $timepoint $genecoverage
+02_scanpy_QCxBiotype.py $timepoint all
+02_scanpy_QCxBiotype.py $timepoint high
 03_cellCycle.py
 04_scanpy_Filtered_suUMAP_Hist.py $timepoint $genecoverage
 05_PJvsVASA.py $timepoint
