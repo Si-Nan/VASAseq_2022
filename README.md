@@ -1,4 +1,4 @@
-# Index for the computational methods used in the VASA-seq manuscript
+# Index for the computational methods used in the VASA-seq manuscript: "Droplet-based single-cell total RNA-seq reveals differential non-coding expression and splicing patterns during mouse development"
 
 
 
