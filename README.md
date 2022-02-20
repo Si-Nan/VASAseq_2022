@@ -17,3 +17,5 @@ This repository aims to serve as an index of the main computational methods impl
   - [d. Analysis](II_Alternative_splicing/d_Analysis/)
 
 The manuscript is currently deposited on the biorxiv pre-print server, embedded in the following URL: https://doi.org/10.1101/2021.09.15.460240
+
+The dataset can be accessed on Gene Expression Omnibus with the accession number: GSE176588
