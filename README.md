@@ -16,3 +16,4 @@ This repository aims to serve as an index of the main computational methods impl
   - [c. Event-based quantification](II_Alternative_splicing/c_AS_quantification/)
   - [d. Analysis](II_Alternative_splicing/d_Analysis/)
 
+The manuscript is currently deposited on the biorxiv pre-print server, embedded in the following URL: https://doi.org/10.1101/2021.09.15.460240
