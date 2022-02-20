@@ -1,4 +1,4 @@
-# Index of computational methods used for VASA-seq's manuscript
+# Index for the computational methods used in the VASA-seq manuscript
 
 
 
