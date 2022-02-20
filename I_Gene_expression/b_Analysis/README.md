@@ -50,9 +50,12 @@ genecoverage=all
 03_cellCycle.py
 04_scanpy_Filtered_suUMAP_Hist.py $timepoint $genecoverage
 05_PJvsVASA.py $timepoint
+07_RNAvelocity.py $timepoint
+```
+Once the previous steps have run for all the timepoints, we can proceed with the next scripts: 
+```
 06_masterUMAP.py
 06_masterUMAP_noHist.py
-07_RNAvelocity.py $timepoint
 08_RNAvelocity_merged.py
 ```
 
